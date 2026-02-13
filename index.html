@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Serás mi San Valentín? 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #e91e63;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+        }
+
+        .message {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .question {
+            font-size: 1.5em;
+            color: #e91e63;
+            font-weight: bold;
+            margin-bottom: 35px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        button {
+            padding: 20px 60px;
+            font-size: 1.3em;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 350px;
+            cursor: pointer;
+        }
+
+        .yes-btn {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .no-btn {
+            background: #ddd;
+            color: #666;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .celebration p {
+            font-size: 1.3em;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .big-heart {
+            font-size: 6em;
+            margin: 20px 0;
+        }
+
+        .highlight {
+            font-size: 1.5em;
+            color: #e91e63;
+            font-weight: bold;
+        }
+
+        @media (max-width: 500px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .message {
+                font-size: 1.1em;
+            }
+            
+            button {
+                padding: 18px 40px;
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="question">
+            <h1>💝 Una pregunta especial 💝</h1>
+            <p class="message">
+                En este día tan especial, quiero preguntarte algo que viene directo de mi corazón...
+            </p>
+            <p class="question">
+                ¿Quieres ser mi San Valentín? 💕
+            </p>
+            <div class="buttons">
+                <button class="yes-btn" onclick="handleYes()">¡Sí, claro! 💖</button>
+                <button class="no-btn" id="noBtn" onmouseover="handleNo()" ontouchstart="handleNo()">No...</button>
+            </div>
+        </div>
+
+        <div id="celebration" class="hidden celebration">
+            <h1>¡Sabía que dirías que sí! 🎉</h1>
+            <div class="big-heart">💕</div>
+            <p class="highlight">
+                ¡Gracias mi mochito! 🥰
+            </p>
+            <p>Eres lo más lindo que me ha pasado en la vida 💖</p>
+            <p>No sabes lo feliz que me haces cada día mi amor</p>
+            <p>Eres mi personita favorita en todo el mundo 🌎✨</p>
+            <p style="margin-top: 25px;" class="highlight">
+                Te amo con todo mi corazón ❤️
+            </p>
+            <p style="font-size: 1.1em; color: #999; margin-top: 15px;">
+                Gracias por ser mi San Valentín mi mochito hermoso 💝
+            </p>
+        </div>
+    </div>
+
+    <script>
+        function handleYes() {
+            document.getElementById('question').style.display = 'none';
+            document.getElementById('celebration').style.display = 'block';
+        }
+
+        function handleNo() {
+            var noBtn = document.getElementById('noBtn');
+            var x = Math.random() * (window.innerWidth - 250);
+            var y = Math.random() * (window.innerHeight - 150);
+            
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+            
+            var yesBtn = document.querySelector('.yes-btn');
+            var currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+            yesBtn.style.fontSize = (currentSize + 3) + 'px';
+        }
+    </script>
+</body>
+</html>
