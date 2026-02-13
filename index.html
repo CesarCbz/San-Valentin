@@ -129,8 +129,8 @@
                 ¿Quieres ser mi San Valentín? 💕
             </p>
             <div class="buttons">
-                <button class="yes-btn" onclick="handleYes()">¡Sí, claro! 💖</button>
-                <button class="no-btn" id="noBtn" onmouseover="handleNo()" ontouchstart="handleNo()">No...</button>
+                <button type="button" class="yes-btn" onclick="handleYes()">¡Sí, claro! 💖</button>
+                <button type="button" class="no-btn" id="noBtn" onclick="handleNo()" onmouseover="handleNo()" ontouchstart="handleNo()">No...</button>
             </div>
         </div>
 
@@ -160,8 +160,13 @@
 
         function handleNo() {
             var noBtn = document.getElementById('noBtn');
-            var x = Math.random() * (window.innerWidth - 250);
-            var y = Math.random() * (window.innerHeight - 150);
+            var btnWidth = noBtn.offsetWidth || 120;
+            var btnHeight = noBtn.offsetHeight || 40;
+            var margin = 10;
+            var maxX = Math.max(0, window.innerWidth - btnWidth - margin);
+            var maxY = Math.max(0, window.innerHeight - btnHeight - margin);
+            var x = Math.floor(Math.random() * maxX);
+            var y = Math.floor(Math.random() * maxY);
             
             noBtn.style.position = 'fixed';
             noBtn.style.left = x + 'px';
